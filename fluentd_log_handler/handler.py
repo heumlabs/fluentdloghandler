@@ -5,20 +5,21 @@ from fluent import handler
 
 
 class NeilFluentdFormatter(handler.FluentRecordFormatter):
-    def __init__(self, task_name=''):
+    def __init__(self):
         structure = {
             'hostname': '%(hostname)s',
             'module': '%(module)s',
             'funcName': '%(funcName)s',
-            'type': '%(levelname)s',
+            'levelname': '%(levelname)s',
             'created': '%(created)f',
             'process': '%(process)d',
             'thread': '%(thread)d',
             'processName': '%(processName)s',
             'pathName': '%(pathname)s',
-            'levelno': '%(levelno)s'
+            'levelno': '%(levelno)s',
+            'stack_trace': '%(exc_text)s',
+            'message': '%(message)s',
         }
-        structure['taskName'] = task_name
         super().__init__(structure)
 
 

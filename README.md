@@ -18,10 +18,10 @@ pip install fluentd_log_handler
 import logging
 from fluentd_log_handler.handler import NeilFluentdHandler
 
-handler = NeilFluentdHandler(tag='app.worker', task_name='국민연금고지액조회')
+handler = NeilFluentdHandler(tag='app.worker')
 
 logger = logging.getLogger('neil')
 logger.addHandler(handler)
 
-logger.error('에러 발생')
+logger.error({'task_name': '금융정보 조회', 'request_id': 1})
 ```
