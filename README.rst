@@ -28,4 +28,4 @@ Example
     logger = logging.getLogger('neil')
     logger.addHandler(handler)
 
-    logger.error({'task_name': '금융정보 조회', 'request_id': 1})
+    logger.error({'message': {'task': '금융정보조회', 'company_id': 123}})
