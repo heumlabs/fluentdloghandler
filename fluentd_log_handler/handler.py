@@ -32,5 +32,5 @@ def overflow_handler(pendings):
 class NeilFluentdHandler(handler.FluentHandler):
     def __init__(self, tag, host='127.0.0.1', port=24224, task_name=''):
         super().__init__(tag=tag, host=host, port=port, buffer_overflow_handler=overflow_handler)
-        formatter = NeilFluentdFormatter(task_name)
+        formatter = NeilFluentdFormatter()
         self.setFormatter(formatter)
